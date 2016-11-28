@@ -12,6 +12,7 @@ public class Psi {
     public static void main(String[] args) {
         Neuron neuron = new Neuron();
         neuron.LosujWagi();
+        double start = System.currentTimeMillis();
         for (int k = 0; k < 30; k++) {
             neuron.blad = 0;
             neuron.info = 0;
@@ -25,6 +26,7 @@ public class Psi {
             }
             System.out.println(neuron.blad / 900.0);
         }
+        System.out.println("Czas uczenia: " + (System.currentTimeMillis()-start) +"ms");
 
     }
 
