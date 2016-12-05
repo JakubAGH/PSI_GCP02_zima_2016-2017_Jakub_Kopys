@@ -9,6 +9,12 @@ public class Siec {
     Warstwa[] warstwy;
     int iloscWarstw;
 
+    public Siec(int ileWarstw)
+    {
+        this.iloscWarstw=ileWarstw;
+        this.warstwy=new Warstwa[ileWarstw];
+    }
+
     void uczenieDelta(int k) {
         for (int i = 0; i < iloscWarstw; i++) {
             warstwy[i].Delta(k);

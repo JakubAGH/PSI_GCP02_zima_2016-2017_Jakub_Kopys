@@ -61,4 +61,33 @@ public class Warstwa {
 
         }
     }
+
+    public void RegułaHebbaN(){
+        double n=0.1;
+        for(int i=0;i<this.liczbaNeuronow;i++){
+            for(int j=0;i<this.liczbaNeuronow;j++){
+                neurony[i].wagi[j]=neurony[i].wagi[j]+n*neurony[i].dane[i][10]*this.poprzedniaWarstwa.neurony[i].odpowiedz;
+            }
+        }
+    }
+
+    public void RegułaHebbaZapominanieN(){
+        double n=0.1;
+        double zapominanie=0.5;
+        for(int i=0;i<this.liczbaNeuronow;i++){
+            for(int j=0;i<this.liczbaNeuronow;j++){
+                neurony[i].wagi[j]=neurony[i].wagi[j]*(1-zapominanie)+n*neurony[i].dane[i][10]*this.poprzedniaWarstwa.neurony[i].odpowiedz;
+            }
+        }
+    }
+
+    public void RegułaOjiN() {
+        double n = 0.1;
+        for (int i = 0; i < this.liczbaNeuronow; i++) {
+            for (int j = 0; i < this.liczbaNeuronow; j++) {
+                neurony[i].wagi[j] = neurony[i].wagi[j] + n * neurony[i].dane[i][10] * this.poprzedniaWarstwa.neurony[i].odpowiedz * neurony[i].wagi[j];
+            }
+        }
+    }
+
 }
