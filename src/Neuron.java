@@ -83,9 +83,15 @@ public class Neuron {
         }
     }
 
-    void FunkcjaSigomidalna() {
+    void FunkcjaSigmoidalna() {
         this.odpowiedz = 2 / (1 + exp(-this.suma)) - 1;
     }
+    void Weryfikacja(int k) {
+        if (this.odpowiedz != Neuron.dane[k][9]) {
+            blad++;
+        }
+    }
+
 
     void UczeniePerceptron(int k) {
         if (this.odpowiedz > Neuron.dane[k][9]) {
@@ -119,5 +125,15 @@ public class Neuron {
         }
         this.wagi[9] += n * roznica;
     }
+    void WTA(int k) {
+
+        double n = 0.1;
+
+        for (int i = 0; i < 9; i++) {
+            this.wagi[i] += n * (Neuron.dane[k][i] - this.wagi[i]);
+
+        }
+    }
+
 
 }
